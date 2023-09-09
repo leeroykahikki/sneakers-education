@@ -1,0 +1,29 @@
+.buttonNext {
+  position: absolute;
+  top: 132px;
+  right: -16px;
+  border-radius: 43px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+  background-color: #fff;
+  width: 35px;
+  height: 35px;
+}
+
+.searchBlock {
+  border: 1px solid #f3f3f3;
+  border-radius: 10px;
+  padding: 0 15px;
+
+  input {
+    border: 0;
+    padding: 13px;
+    width: 200px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 1079px) {
+  .banner {
+    display: none;
+  }
+}
