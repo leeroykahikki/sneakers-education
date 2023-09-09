@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
+import { toast } from 'react-hot-toast';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import ButtonGreen from '../ButtonGreen';
 import ButtonRemove from '../ButtonRemove';
 import styles from './Drawer.module.css';
 
-export default function Drawer({ onRemove, setCartOpened, items = [] }) {
+export default function Drawer({ onRemove, setCartOpened, items = [], userCash }) {
   const [overlayRender, setOverlayRender] = useState(false);
   const nodeRef = useRef(null);
 
@@ -25,6 +26,12 @@ export default function Drawer({ onRemove, setCartOpened, items = [] }) {
       return () => clearTimeout(timer);
     }
   }, [overlayRender, setCartOpened]);
+
+  const getFullPrice = () => {
+    let fullPrice = 0;
+    items.map(({ price }) => (fullPrice += price));
+    return fullPrice;
+  };
 
   return (
     <TransitionGroup>
@@ -60,16 +67,21 @@ export default function Drawer({ onRemove, setCartOpened, items = [] }) {
                 <li>
                   <span>Итого:</span>
                   <div></div>
-                  <b>21 498 руб.</b>
-                </li>
-                <li>
-                  <span>Налог 5%:</span>
-                  <div></div>
-                  <b>1074 руб.</b>
+                  <b>{`${getFullPrice()} руб.`}</b>
                 </li>
               </ul>
 
-              <ButtonGreen title="Оформить заказ" isReverse={false} />
+              <ButtonGreen
+                title="Оформить заказ"
+                isReverse={false}
+                onClick={
+                  items.length === 0
+                    ? () => toast.error('Корзина пуста')
+                    : getFullPrice() <= userCash
+                    ? () => toast.success('Заказ успешно оформлен')
+                    : () => toast.error('Недостаточно средств')
+                }
+              />
             </div>
           </div>
         </CSSTransition>

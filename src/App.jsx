@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { useEffect, useRef, useState } from 'react';
+import { toast } from 'react-hot-toast';
 import { Route, Switch } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Alert from './components/Alert';
 import Drawer from './components/Drawer';
@@ -15,6 +17,7 @@ export default function App() {
   const [items, setItems] = useState([]); // Товары
   const [isLoadingItems, setIsLoadingItems] = useState(true); // Состояние изначальной загрузки карточек из БД
   const [favoriteList, setFavoriteList] = useState([]);
+  const [userCash, setUserCash] = useState(20000);
 
   const drawerRef = useRef(null); // Анимация корзины
 
@@ -78,11 +81,34 @@ export default function App() {
   // Обработка лайка
   const handleOnClickFavorite = () => {
     console.log(favoriteList);
+    // toast.success('🦄 Wow so easy!', {
+    //   position: 'top-left',
+    //   autoClose: 2000,
+    //   hideProgressBar: false,
+    //   closeOnClick: true,
+    //   pauseOnHover: true,
+    //   draggable: true,
+    //   progress: undefined,
+    //   theme: 'light',
+    // });
+    toast.success('Successfully toasted!');
   };
 
   return (
     <div className="wrapper clear">
-      <button onClick={handleOnClickFavorite}>Кликни</button>
+      <ToastContainer
+        position="top-left"
+        autoClose={2000}
+        limit={5}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <Alert />
       <TransitionGroup>
         {cartOpened && (
@@ -92,13 +118,14 @@ export default function App() {
                 onRemove={handleOnRemoveItemCart}
                 setCartOpened={setCartOpened}
                 items={cartItems}
+                userCash={userCash}
               />
             </div>
           </CSSTransition>
         )}
       </TransitionGroup>
 
-      <Header onClickCart={() => setCartOpened(true)} />
+      <Header onClickCart={() => setCartOpened(true)} userCash={userCash} />
 
       <Route
         render={({ location }) => (
