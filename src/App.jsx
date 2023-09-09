@@ -1,12 +1,12 @@
-import { useState, useEffect, useRef } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import axios from 'axios';
+import { useEffect, useRef, useState } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Alert from './components/Alert';
 import Drawer from './components/Drawer';
 import Header from './components/Header';
-import Home from './pages/Home';
 import Favorites from './pages/Favorites';
+import Home from './pages/Home';
 
 export default function App() {
   const [cartOpened, setCartOpened] = useState(false); // Состояние корзины

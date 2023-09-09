@@ -1,8 +1,8 @@
-import { useRef, useState, useEffect } from 'react';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import styles from './Drawer.module.scss';
-import ButtonRemove from '../ButtonRemove';
+import { useEffect, useRef, useState } from 'react';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import ButtonGreen from '../ButtonGreen';
+import ButtonRemove from '../ButtonRemove';
+import styles from './Drawer.module.css';
 
 export default function Drawer({ onRemove, setCartOpened, items = [] }) {
   const [overlayRender, setOverlayRender] = useState(false);

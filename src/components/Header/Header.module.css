@@ -1,0 +1,17 @@
+header {
+  border-bottom: 1px solid #eaeaea;
+}
+
+header h3,
+header p {
+  margin: 0;
+}
+
+header span {
+  line-height: 17px;
+  color: #5c5c5c;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  font-style: normal;
+}

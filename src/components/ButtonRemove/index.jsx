@@ -1,4 +1,4 @@
-import styles from './ButtonRemove.module.scss';
+import styles from './ButtonRemove.module.css';
 
 export default function ButtonRemove({ onClick }) {
   return (

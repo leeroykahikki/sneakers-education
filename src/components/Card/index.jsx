@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Loader from '../Loader';
-import styles from './Card.module.scss';
+import styles from './Card.module.css';
 
 export default function Card({ title, price, imageURL, onAddItemCart, likeStatus }) {
   const [isLoading, setIsLoading] = useState(false);

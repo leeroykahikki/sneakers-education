@@ -41,7 +41,6 @@
     ]
   },
   "devDependencies": {
-    "node-sass": "8.0.0",
     "stylelint": "^13.13.1",
     "stylelint-config-concentric-order": "^4.0.1",
     "stylelint-config-sass-guidelines": "^8.0.0",

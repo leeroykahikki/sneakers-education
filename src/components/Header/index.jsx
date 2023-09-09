@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import './Header.module.scss';
+import './Header.module.css';
 
 export default function Header({ onClickCart }) {
   return (

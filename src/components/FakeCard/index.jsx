@@ -1,4 +1,4 @@
-import styles from './FakeCard.module.scss';
+import styles from './FakeCard.module.css';
 
 export default function Card() {
   return (

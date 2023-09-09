@@ -1,4 +1,4 @@
-import styles from './ButtonGreen.module.scss';
+import styles from './ButtonGreen.module.css';
 
 export default function ButtonGreen({ title, isReverse }) {
   return (

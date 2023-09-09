@@ -1,4 +1,4 @@
-import styles from './Alert.module.scss';
+import styles from './Alert.module.css';
 
 export default function Alert({ alerts = [] }) {
   return (

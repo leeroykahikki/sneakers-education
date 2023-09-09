@@ -1,9 +1,9 @@
 html {
   scrollbar-width: none;
+}
 
-  ::-webkit-scrollbar {
-    width: 0;
-  }
+html ::-webkit-scrollbar {
+  width: 0;
 }
 
 body {
@@ -26,10 +26,8 @@ body {
   max-width: 1080px;
 }
 
-.content {
-  h1 {
-    margin: 0;
-  }
+.content h1 {
+  margin: 0;
 }
 
 .overlay {

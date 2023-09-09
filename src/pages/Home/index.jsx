@@ -1,6 +1,6 @@
-import styles from './Home.module.scss';
 import Card from '../../components/Card';
 import FakeCard from '../../components/FakeCard';
+import styles from './Home.module.css';
 
 export default function Home({
   searchValue,
